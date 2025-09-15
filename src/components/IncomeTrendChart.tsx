@@ -146,13 +146,15 @@ const IncomeTrendChart = ({ data }: { data: DataPoint[] }) => {
 
         <div className="flex justify-center items-center space-x-2">
           <div className="flex space-x-1.5 items-center justify-center">
-            <div className="h-4 w-4 bg-[#a743ef]"></div>
+            <div className="h-4 w-4 bg-[#a743ef] rounded"></div>
             <span className="text-[#a743ef] font-semibold">income</span>
           </div>
-          <div className="flex space-x-1.5 items-center justify-center">
-            <div className="h-0.5 w-4 bg-[#7f1e1d]"></div>
-            <span className="text-[#7f1e1d]">momGroth</span>
+          <div className="flex items-center">
+            <div className="h-0.5 w-2 flex-1 bg-[#7f1e1d]" />
+            <div className="w-2 h-2 rounded-full border-2 border-[#7f1e1d] bg-white flex items-center justify-center"></div>
+            <div className="h-0.5 flex-1 bg-[#7f1e1d]" />
           </div>
+          <span className="text-[#7f1e1d] font-medium">momGrowth</span>
         </div>
       </div>
     </div>

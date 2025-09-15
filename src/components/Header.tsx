@@ -23,7 +23,7 @@ const Header = () => {
       <DropdownMenu>
         <DropdownMenuTrigger>
           <Avatar className="w-10 h-10 cursor-pointer">
-            <AvatarImage src="src/assets/ProfileIcon.png" alt="Profile" />
+            <AvatarImage src="/assets/ProfileIcon.png" alt="Profile" />
             <AvatarFallback>PI</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
