@@ -20,8 +20,10 @@ export default function App() {
           </div>
           <DateRangeSelector />
           <StatsPanel stats={statsData} />
-          <IncomeTrendChart data={incomeData} />
-          <InvoiceList invoices={invoicesData} />
+          <div className="flex-col lg:flex-row lg:flex justify-between items-start space-y-6 lg:gap-x-6 ">
+            <IncomeTrendChart data={incomeData} />
+            <InvoiceList invoices={invoicesData} />
+          </div>
         </div>
       </div>
     </div>

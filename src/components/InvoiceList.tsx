@@ -41,7 +41,7 @@ const InvoiceList = ({ invoices }: { invoices: Invoice[] }) => {
   };
 
   return (
-    <section className="flex flex-col gap-y-4">
+    <section className="flex w-full flex-col gap-y-4">
       <div
         className="flex justify-between items-center cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
@@ -57,18 +57,18 @@ const InvoiceList = ({ invoices }: { invoices: Invoice[] }) => {
           <DropdownIcon fill="black" />
         </div>
       </div>
-      {isOpen && (
+      {isOpen ? (
         <div className="space-y-4">
           {invoiceData.map((invoice) => (
             <div
               key={invoice.id}
               className="p-4 flex justify-between items-center border-2 border-gray-200 rounded-2xl"
             >
-              <div className="flex flex-col space-y-1">
+              <div className="flex flex-col  space-y-1">
                 <span className="text-[#6B7280] font-medium text-sm">
                   {invoice.client}
                 </span>
-                <div className="flex space-x-2 text-[#999999] text-sm">
+                <div className="flex space-x-2 flex-wrap text-[#999999] text-sm">
                   <span>{invoice.amount}</span>
                   <span>Due: {invoice.dueDate}</span>
                 </div>
@@ -76,7 +76,7 @@ const InvoiceList = ({ invoices }: { invoices: Invoice[] }) => {
 
               {invoice.status ? (
                 <span
-                  className={`px-3 py-1 rounded-2xl text-sm font-medium ${
+                  className={`px-3 py-1 rounded-2xl text-nowrap text-sm font-medium ${
                     statusColors[invoice.status] || "bg-gray-100 text-gray-800"
                   }`}
                 >
@@ -86,7 +86,7 @@ const InvoiceList = ({ invoices }: { invoices: Invoice[] }) => {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <div className="bg-[#8134AF] rounded-3xl px-4 py-1.5 flex items-center space-x-2 cursor-pointer">
-                      <span className="text-sm text-white font-medium">
+                      <span className="text-sm text-white text-nowrap font-medium">
                         Update Status
                       </span>
                       <DropdownIcon fill="white" />
@@ -110,6 +110,10 @@ const InvoiceList = ({ invoices }: { invoices: Invoice[] }) => {
             </div>
           ))}
         </div>
+      ) : (
+        <>
+          <span className="text-sm text-[#999999]">To see the expanded invoice list, click the arrow above.</span>
+        </>
       )}
     </section>
   );

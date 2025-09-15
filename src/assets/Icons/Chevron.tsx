@@ -2,7 +2,7 @@ export const Chevron = () => {
   return (
     <svg
       width="12"
-      height="20"
+      height="18"
       viewBox="0 0 12 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
