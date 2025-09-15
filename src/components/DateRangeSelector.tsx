@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format, subMonths, subYears } from "date-fns";
 import { CalIcon } from "../assets/Icons/CalIcon";
+import { FavIcon } from "../assets/Icons/FavIcon";
 
 function DateRangeSelector() {
   const [selectedRange, setSelectedRange] = useState("3Month");
@@ -29,6 +30,7 @@ function DateRangeSelector() {
     setIsDatePickerOpen(true);
   };
 
+  // custom display range and selected range
   const displayRange =
     selectedRange === "Custom"
       ? customStartDate
@@ -43,24 +45,26 @@ function DateRangeSelector() {
         )}`;
 
   return (
-    <div className="m-4 p-4 flex flex-col border-2 space-y-4 border-gray-200 py-4 px-3 rounded-2xl">
+    <section className="p-4 flex flex-col border-2 space-y-4 border-gray-200 py-4 px-3 rounded-2xl">
       <div className="flex justify-between">
         <span className="text-[#999999] text-sm font-medium">Time Period</span>
-        <span className="text-[#999999]">{displayRange}</span>
+        <span className="text-[#999999] text-sm">{displayRange}</span>
       </div>
 
-      <div className="flex space-x-2">
+      <div className="flex flex-wrap space-y-2 space-x-2">
         {["1Month", "3Month", "1Year"].map((range) => (
           <span
             key={range}
             onClick={() => handlePredefinedSelect(range)}
-            className={`px-3 py-1 text-sm rounded-full border font-normal cursor-pointer ${
+            className={`px-3 py-1 text-sm rounded-full border font-normal cursor-pointer flex items-center gap-x-1 ${
               selectedRange === range
                 ? "text-[#9747FF]  border border-[#F3E8FF] bg-[#fbf5fb]"
                 : "border-gray-200 text-[#999999]"
             }`}
           >
             {range}
+
+            {range === "1Year" ? <FavIcon /> : ""}
           </span>
         ))}
 
@@ -91,7 +95,7 @@ function DateRangeSelector() {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

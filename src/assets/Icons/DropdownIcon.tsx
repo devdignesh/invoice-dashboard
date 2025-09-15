@@ -1,0 +1,16 @@
+export const DropdownIcon = ({ fill }: { fill: string }) => {
+  return (
+    <svg
+      width="10"
+      height="6"
+      viewBox="0 0 10 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.90375 5.20185L0.5 0.798096H9.3075L4.90375 5.20185Z"
+        fill={fill}
+      />
+    </svg>
+  );
+};
